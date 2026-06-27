@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <!-- Header with Theme Toggle -->
+            <div class="app-header">
+                <h1>📋 Advanced To-Do List</h1>
+                <div class="header-actions">
+                    <span id="userEmail" class="user-email"></span>
+                    <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
+                        🌙 Dark Mode
+                    </button>
+                    <button id="logoutBtn" class="logout-btn" title="Logout">
+                        🚪 Logout
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="todoInput" 
+                        placeholder="Add a new task..."
+                        class="todo-input"
+                    >
+                    <select id="categorySelect" class="category-select">
+                        <option value="General">General</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                    </select>
+                    <select id="prioritySelect" class="priority-select">
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                    <input 
+                        type="date" 
+                        id="dueDateInput" 
+                        class="due-date-input"
+                    >
+                    <button id="addBtn" class="add-btn">Add Task</button>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <div class="category-filter">
+                    <label>Filter by Category:</label>
+                    <select id="categoryFilter" class="category-filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="General">General</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div id="todoList" class="todo-list">
+                <!-- Tasks will be added here -->
+            </div>
+
+            <!-- Statistics -->
+            <div class="todo-stats">
+                <span id="totalTasks">Total: 0</span>
+                <span id="completedTasks">Completed: 0</span>
+                <span id="overdueTasks">Overdue: 0</span>
+                <button id="clearBtn" class="clear-btn">Clear Completed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task</h2>
+            <input type="text" id="editTaskInput" class="modal-input" placeholder="Edit task description">
+            <div class="modal-controls">
+                <select id="editPrioritySelect" class="modal-select">
+                    <option value="high">High Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="low">Low Priority</option>
+                </select>
+                <select id="editCategorySelect" class="modal-select">
+                    <option value="General">General</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Health">Health</option>
+                    <option value="Education">Education</option>
+                </select>
+                <input type="date" id="editDueDateInput" class="modal-input">
+            </div>
+            <div class="modal-buttons">
+                <button id="saveEditBtn" class="save-btn">Save Changes</button>
+                <button id="cancelEditBtn" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
